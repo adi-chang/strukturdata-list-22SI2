@@ -1,13 +1,34 @@
 package code02;
 
+import java.util.concurrent.CountDownLatch;
+
 public class Sample {
     
     public static void main(String[] args) {
         
         ArrayList list = new ArrayList();
 
-        // sample code to show operation on ArrayList 
-
+        // add data 
+        for (int i = 1; i <= 15; i++) {
+            System.out.println("add item: " + i + " to list.");
+            list.add((i));
+            System.out.println("list items: " + list);
+            System.out.println("count: " + list.getCount());
+            System.out.println("capacity: " + list.getCapacity());
+            System.out.println("isEmpty ? " + list.isEmpty());
+            System.out.println("isFull ? " + list.isFull());
+            System.out.println();
+        }
+        // clear all list item
+        list.clear();
+        System.out.println("list items: " + list);
+        System.out.println("count: " + list.getCount());
+        System.out.println("capacity: " + list.getCapacity());
+        System.out.println("isEmpty ? " + list.isEmpty());
+        System.out.println("isFull ? " + list.isFull());
+        System.out.println();
+        
+        System.out.println("done.");
     }
 }
 
@@ -19,18 +40,35 @@ class ArrayList {
 
     private final int INITIAL_CAPACITY = 10;
 
-    public ArrayList() {
-        
+    public ArrayList() { // constructor
+        capacity = INITIAL_CAPACITY;
+        arr = new int[capacity];
+        count = 0;
     }
 
-    public int getCount() { return -1; }
-    public int length() { return -1; }
-    public int getCapacity() { return -1; }
+    public int getCount() { return count; }
+    public int length() { return count; }
+    public int getCapacity() { return capacity; }
 
-    public boolean isEmpty() { return false; }
-    public boolean isFull() { return false; } 
+    public boolean isEmpty() { return count == 0; }
+    public boolean isFull() { return count == capacity; } 
 
-    public void add(int item) {}
+    private void growArray() {
+        int[] newArr = new int[capacity + INITIAL_CAPACITY];
+        for (int i = 0; i < arr.length; i++)
+            newArr[i] = arr[i];
+        capacity += INITIAL_CAPACITY;
+        arr = newArr;
+    }
+
+    public void add(int item) {
+        if (count == capacity) 
+            growArray();
+        if (count < capacity) {
+            arr[count] = item;
+            count = count + 1;
+        }
+    }
 
     public void insert(int index, int item) {}
 
@@ -45,7 +83,9 @@ class ArrayList {
     public boolean removeLast(int item) { return false; }
     public boolean removeAll(int item) { return false; }
 
-    public void clear() {}
+    public void clear() {
+        count = 0;
+    }
 
     @Override
     public String toString() {
