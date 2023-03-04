@@ -1,7 +1,5 @@
 package code02;
 
-import java.util.concurrent.CountDownLatch;
-
 public class Sample {
     
     public static void main(String[] args) {
@@ -11,23 +9,12 @@ public class Sample {
         // add data 
         for (int i = 1; i <= 15; i++) {
             System.out.println("add item: " + i + " to list.");
-            list.add((i));
+            list.insert(0, i);
             System.out.println("list items: " + list);
             System.out.println("count: " + list.getCount());
-            System.out.println("capacity: " + list.getCapacity());
-            System.out.println("isEmpty ? " + list.isEmpty());
-            System.out.println("isFull ? " + list.isFull());
             System.out.println();
         }
-        // clear all list item
-        list.clear();
-        System.out.println("list items: " + list);
-        System.out.println("count: " + list.getCount());
-        System.out.println("capacity: " + list.getCapacity());
-        System.out.println("isEmpty ? " + list.isEmpty());
-        System.out.println("isFull ? " + list.isFull());
-        System.out.println();
-        
+
         System.out.println("done.");
     }
 }
@@ -70,14 +57,24 @@ class ArrayList {
         }
     }
 
-    public void insert(int index, int item) {}
+    public void insert(int index, int item) {
+        if (count == capacity) growArray();
+        if (count == 0 && index == 0) 
+            add(item);
+        else if (index >= 0 && index < count) {
+            for (int i = count; i > index; i--) 
+                arr[i] = arr[i-1];
+            arr[index] = item;
+            count++;
+        }
+    }
 
     public int getItem(int index) { return -1; }
     public void setItem(int index, int item) {}
 
     public boolean findFirst(int item) { return false; }
-    public boolean findLast(int item) { return false; }
     public int findIndex(int item) { return -1; } 
+    public int findLastIndex(int item) { return -1; }
 
     public boolean removeFirst(int item) { return false; }
     public boolean removeLast(int item) { return false; }
