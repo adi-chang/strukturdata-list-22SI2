@@ -1,0 +1,279 @@
+Perhatikan file: Sample.java 
+
+saat ini, ketika di-run, program akan menghasilkan output sbb: 
+
+output program 
+--------------
+
+Tugas - ArrayList
+-----------------
+
+add items and print it
+----------------------
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count list items: 11
+list capacity: 20
+
+sample get item at index 1, 3, 5
+--------------------------------
+item at index-1: -1
+item at index-3: -1
+item at index-5: -1
+
+sample set item
+---------------
+set item at index-0 => 5
+
+after set item at index-0 => 5
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+
+sample findFirst
+----------------
+item: 2 tidak ditemukan dalam list
+item: 13 tidak ditemukan dalam list
+
+sample findIndex
+----------------
+item: 15 tidak ditemukan dalam list
+item: 7 tidak ditemukan dalam list
+
+sample findLastIndex
+--------------------
+item: 15 tidak ditemukan dalam list
+item: 5 tidak ditemukan dalam list
+
+sample removeAt
+---------------
+remove item at index: 3
+list item before remove item at index: 3
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count: 11
+
+sample removeFirst
+------------------
+removeFirst item = 2
+list item before removeFirst item: 2
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count: 11
+
+sample removeLast
+------------------
+removeLast item = 6
+list item before removeLast item: 6
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count: 11
+
+sample removeAll
+----------------
+removeAll item = 5
+list item before removeAll item: 5
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count: 11
+
+done.
+
+end of output program 
+---------------------
+
+
+question:
+---------
+lengkapilah kode program pada Sample.java dengan melengkapi kode program pada operasi-operasi yang masih kosong, 
+agar ketika di-run, output dari program akan menjadi sbb (OUTPUT YANG DIHARAPKAN):
+
+output program 
+--------------
+
+Tugas - ArrayList
+-----------------
+
+add items and print it
+----------------------
+list items: 1, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count list items: 11
+list capacity: 20
+
+sample get item at index 1, 3, 5
+--------------------------------
+item at index-1: 2
+item at index-3: 4
+item at index-5: 10
+
+sample set item
+---------------
+set item at index-0 => 5
+
+after set item at index-0 => 5
+list items: 5, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+
+sample findFirst
+----------------
+item: 2 ditemukan dalam list
+item: 13 tidak ditemukan dalam list
+
+sample findIndex
+----------------
+item: 15 tidak ditemukan dalam list
+item: 7 ditemukan pada index: 8
+
+sample findLastIndex
+--------------------
+item: 15 tidak ditemukan dalam list
+item: 5 ditemukan pada index: 10
+
+sample removeAt
+---------------
+remove item at index: 3
+list item before remove item at index: 3
+list items: 5, 2, 3, 4, 5, 10, 9, 8, 7, 6, 5
+count: 11
+list item after remove item at index: 3
+list items: 5, 2, 3, 5, 10, 9, 8, 7, 6, 5
+count: 10
+
+sample removeFirst
+------------------
+removeFirst item = 2
+list item before removeFirst item: 2
+list items: 5, 2, 3, 5, 10, 9, 8, 7, 6, 5
+count: 10
+list item after removeFirst item: 2
+list items: 5, 3, 5, 10, 9, 8, 7, 6, 5
+count: 9
+
+sample removeLast
+------------------
+removeLast item = 6
+list item before removeLast item: 6
+list items: 5, 3, 5, 10, 9, 8, 7, 6, 5
+count: 9
+list item after removeLast item: 6
+list items: 5, 3, 5, 10, 9, 8, 7, 5
+count: 8
+
+sample removeAll
+----------------
+removeAll item = 5
+list item before removeAll item: 5
+list items: 5, 3, 5, 10, 9, 8, 7, 5
+count: 8
+list item after removeAll item: 5
+list items: 3, 10, 9, 8, 7
+count: 5
+
+done.
+
+end of output program 
+---------------------
+
+---------------------
+dan berikut ini adalah operasi-operasi (berupa fungsi), yang harus anda lengkapi kode programnya, agar bisa berfungsi sesuai yang diharapkan.
+
+// operasi untuk mengambil elemen data pada posisi index, 
+// index harus valid, 
+// jika tidak valid, return -1
+public int getItem(int index) { 
+   // change with your code
+   return -1;
+}
+
+// operasi untuk mengubah elemen data pada posisi index menjadi item data baru, 
+// index harus valid, 
+// jika tidak valid, do nothing 
+public void setItem(int index, int item) {
+   // change with your code
+}
+
+// operasi untuk menemukan index dari item, 
+// pencarian dilakukan dari index terkecil sampe index terbesar 
+// jika item ditemukan, return true
+// jika item tidak ditemukan, return false
+public boolean findFirst(int item) { 
+   // change with your code
+   return false;
+}
+
+// operasi untuk menemukan index dari sebuah item data,
+// pencarian dilakukan dari index terkecil ke index terbesar
+//jika item ditemukan, return nilai index posisi item data
+// jika tidak ditemukan, return -1
+public int findIndex(int item) {
+   // change with your code
+   return -1; 
+} 
+
+// operasi untuk menemukan index paling akhir (paling besar) dari sebuah item data,
+// jika item ditemukan, return nilai index posisi terbesar dari item data 
+// jika tidak ditemukan, return -1
+public int findLastIndex(int item) {
+   // change with your code
+   return -1;
+}
+
+// operasi untuk menghapus item data pada posisi index
+// posisi index harus valid,
+// jika valid, remove item datanya, then return true 
+// jika tidak valid, return false
+public boolean removeAt(int index) {
+   // change with your code
+   return false;
+}
+
+// operasi untuk menghapus elemen item data yang pertama sekali ditemukan (item dengan posisi index paling kecil) 
+// jika berhasil melakukan penghapusan, return true
+// jika gagal atau item tidak ditemukan, return false
+public boolean removeFirst(int item) {
+   // change with your code
+   return false;
+}
+
+// operasi untuk menghapus elemen item data yang terakhir sekali ditemukan (item dengan posisi index paling besar)
+// jika berhasil melakukan penghapusan, return true
+// jika gagal atau item tidak ditemukan, return false
+public boolean removeLast(int item) {
+   // change with your code
+   return false;
+}
+
+// operasi untuk menghapus semua elemen item data yang ditemukan pada list 
+// return true jika ada elemen data yang berhasil diremove
+// sebaliknya, return false jika tidak ada elemen data yang berhasil diremove atau elemen data tidak ditemukan
+public boolean removeAll(int item) {
+   // change with your code
+   return false;
+}
+
+
+PESAN PENTING
+-------------
+JANGAN MERUBAH APA PUN KODE PROGRAM YANG ADA PADA FUNGSI MAIN 
+
+
+CARA PENGUMPULAN TUGAS
+----------------------
+SILAHKAN DIKERJAKAN, 
+SUBMIT HASIL PEKERJAAN ANDA (JAWABAN ANDA) BERUPA FILE SOURCE CODE JAVA DENGAN FORMAT PENAMAAN FILE: 
+ArrayList_<Nama>_<Nim>.java
+
+contoh: 
+jika:
+nim anda : 091110002
+nama anda : John Travolta
+
+maka namai file jawaban (source code java anda): ArrayList_JohnTravolta_091110002.java
+
+E-mail file source code jawaban anda (dalam bentuk attachment) ke : adi@lecturer.uph.edu
+
+dengan subject email: Tugas ArrayList
+
+paling lambat: hari jumat, 10 Maret 2023 jam 23.59
+
+
+PENTING !!!
+-----------
+BACA INSTRUKSI SOAL DENGAN SEKSAMA, PAHAMI, KERJAKAN
+EMAIL JAWABAN ANDA, 
+PASTIKAN SUBJECT EMAIL SUDAH BENAR SESUAI INSTRUKSI DAN PENAMAAN FILE SOURCE CODE JAWABAN ANDA JUGA SUDAH BENAR. 
+
+
+SELAMAT MENGERJAKAN !!!
