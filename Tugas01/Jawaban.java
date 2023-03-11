@@ -2,7 +2,7 @@ package Tugas01;
 
 import java.io.IOException;
 
-public class Sample {
+public class Jawaban {
     
     // READONLY - ISI MAIN FUNCTION INI JANGAN DIUBAH-UBAH
     public static void main(String[] args) throws InterruptedException, IOException {
@@ -218,16 +218,15 @@ class ArrayList {
         arr = newArr;
     }
 
-    // operasi untuk melakukan add item data baru. (sisip belakang)
     public void add(int item) {
         if (count == capacity) 
             growArray();
         if (count < capacity) {
-            arr[count++] = item;
+            arr[count] = item;
+            count = count + 1;
         }
     }
 
-    // berfungsi untuk melakukan operasi insert item pada index tertentu
     public void insert(int index, int item) {
         if (count == capacity) growArray();
         if (count == 0 && index == 0) 
@@ -240,83 +239,83 @@ class ArrayList {
         }
     }
 
-    // berfungsi untuk melakukan pengecekan apakah index valid atau tidak
     private boolean indexIsValid(int index) {
         return index >= 0 && index < count;
     }
 
-    // operasi untuk mengambil elemen data pada posisi index, 
-    // index harus valid, 
-    // jika tidak valid, return -1
+
     public int getItem(int index) { 
-        // change with your code
+        if (indexIsValid(index)) 
+            return arr[index];
         return -1;
     }
 
-    // operasi untuk mengubah elemen data pada posisi index menjadi item data baru, 
-    // index harus valid, 
-    // jika tidak valid, do nothing 
     public void setItem(int index, int item) {
-        // change with your code
+        if (indexIsValid(index)) {
+            arr[index] = item;
+        }
     }
 
-    // operasi untuk menemukan index dari item, 
-    // pencarian dilakukan dari index terkecil sampe index terbesar 
-    // jika item ditemukan, return true
-    // jika item tidak ditemukan, return false
     public boolean findFirst(int item) { 
-        // change with your code
+        for (int x : arr) {
+            if (x == item)
+                return true;
+        }
         return false;
     }
 
-    // operasi untuk menemukan index dari sebuah item data,
-    // pencarian dilakukan dari index terkecil ke index terbesar
-    //jika item ditemukan, return nilai index posisi item data
-    // jika tidak ditemukan, return -1
     public int findIndex(int item) {
-        // change with your code
+        for (int i = 0 ; i < count ; i++) 
+            if (arr[i] == item)
+                return i;
         return -1; 
     } 
 
-    // operasi untuk menemukan index paling akhir (paling besar) dari sebuah item data,
-    // jika item ditemukan, return nilai index posisi terbesar dari item data 
-    // jika tidak ditemukan, return -1
     public int findLastIndex(int item) {
-        // change with your code
+        for (int i = count-1; i >= 0; i--)
+            if (arr[i] == item)
+                return i;
         return -1;
     }
 
-    // operasi untuk menghapus item data pada posisi index
-    // posisi index harus valid,
-    // jika valid, remove item datanya, then return true 
-    // jika tidak valid, return false
     public boolean removeAt(int index) {
-        // change with your code
+        if (indexIsValid(index)) {
+            for (int i = index; i < count-1; i++)
+                arr[i] = arr[i+1];
+            count--;
+            return true;
+        }
         return false;
     }
 
-    // operasi untuk menghapus elemen item data yang pertama sekali ditemukan (item dengan posisi index paling kecil) 
-    // jika berhasil melakukan penghapusan, return true
-    // jika gagal atau item tidak ditemukan, return false
     public boolean removeFirst(int item) {
-        // change with your code
+        int idx = findIndex(item);
+        if (idx >= 0) {
+            boolean result = removeAt(idx);
+            return result;
+        }
         return false;
     }
 
-    // operasi untuk menghapus elemen item data yang terakhir sekali ditemukan (item dengan posisi index paling besar)
-    // jika berhasil melakukan penghapusan, return true
-    // jika gagal atau item tidak ditemukan, return false
     public boolean removeLast(int item) {
-        // change with your code
+        int idx = findLastIndex(item);
+        if (idx >= 0) {
+            boolean result = removeAt(idx);
+            return result;
+        }
         return false;
     }
 
-    // operasi untuk menghapus semua elemen item data yang ditemukan pada list 
-    // return true jika ada elemen data yang berhasil diremove
-    // sebaliknya, return false jika tidak ada elemen data yang berhasil diremove atau elemen data tidak ditemukan
     public boolean removeAll(int item) {
-        // change with your code
-        return false;
+        boolean adaDeleteItem = false;
+        int idx = findIndex(item);
+        
+        while (idx >= 0) {
+            boolean b = removeAt(idx);
+            if (b) adaDeleteItem = true;
+            idx = findIndex(item);
+        }
+        return adaDeleteItem;
     }
     
     public void clear() {
